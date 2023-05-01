@@ -19,12 +19,16 @@
     <modules>
         <module>biker-service</module>
         <module>biker/biker-adapters</module>
+        <module>biker/biker-app</module>
+        <module>biker/biker-domain</module>
     </modules>
 
     <properties>
         <java.version>17</java.version>
         <testcontainers.version>1.18.0</testcontainers.version>
         <spring.boot.version>3.0.6</spring.boot.version>
+        <revision>3.0.6</revision>
+        <application.version>0.0.1-SNAPSHOT</application.version>
     </properties>
 
     <dependencies>
@@ -34,8 +38,24 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>pl.grzegorz</groupId>
+                <artifactId>biker-app</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.grzegorz</groupId>
+                <artifactId>biker-domain</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.grzegorz</groupId>
+                <artifactId>biker-adapters</artifactId>
+                <version>${application.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot</artifactId>
@@ -60,6 +80,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
 </project>
